@@ -55,7 +55,7 @@ export const metadata: Metadata = {
       "Get honest reviews, updates & critic scores, and the latest updates from Bollywood, Hollywood, and South cinema.",
     images: [""],
   },
-  metadataBase: new URL("https://bollyflix300.in"),
+  metadataBase: new URL("https://bollyflexlist.vercel.app"),
 };
 
 export default function RootLayout({

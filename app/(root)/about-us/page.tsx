@@ -2,7 +2,10 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About Us",
-}
+  alternates: {
+    canonical: "/about-us",
+  },
+};
 
 type ApiResp = {
   status: string;

@@ -1,8 +1,11 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us",
-}
+  title: "Disclaimer",
+  alternates: {
+    canonical: "/disclaimer",
+  },
+};
 
 type ApiResp = {
   status: string;

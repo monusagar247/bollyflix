@@ -4,6 +4,9 @@ import LatestReviews from "./LatestReviewsClients";
 export async function generateMetadata(): Promise<Metadata> {  
   return {
     title: `Latest Reviews`,
+    alternates: {
+      canonical: "/latest-reviews",
+    },
   };
 }
 

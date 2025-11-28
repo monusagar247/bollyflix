@@ -12,6 +12,9 @@ export async function generateMetadata({
   return {
     title: `${displayCategory} Movies`,
     description: `Browse ${displayCategory} movies and reviews on Bollyflix300`,
+    alternates: {
+      canonical: `/category/${slug}`,
+    },
   };
 }
 

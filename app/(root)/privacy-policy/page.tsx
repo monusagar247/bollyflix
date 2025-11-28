@@ -2,7 +2,10 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-}
+  alternates: {
+    canonical: "/privacy-policy",
+  },
+};
 
 type ApiResp = {
   status: string;

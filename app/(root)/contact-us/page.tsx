@@ -1,3 +1,12 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+  alternates: {
+    canonical: "/contact-us",
+  },
+};
+
 type ApiResp = {
   status: string;
   message: string;

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { MovieCarousel } from "@/components/MovieCarousel";
 import Link from "next/link";
 import {
@@ -6,6 +7,12 @@ import {
   fetchEnglishMovies,
   fetchMoviesByCategory,
 } from "@/lib/api";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default async function Page() {
   const [tvShows, hindiMovies, englishMovies, actionMovies, comedyMovies] =

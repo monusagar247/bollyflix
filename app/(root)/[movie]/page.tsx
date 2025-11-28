@@ -11,6 +11,9 @@ export async function generateMetadata({
   
   return {
     title: `${displayMovie}`,
+    alternates: {
+      canonical: `/${movie}`,
+    },
   };
 }
 
