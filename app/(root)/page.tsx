@@ -28,7 +28,7 @@ export default async function Page() {
 
     {/* Main Title */}
     <h1 className="hero-animate text-3xl sm:text-4xl md:text-5xl font-bold text-(--text-color) mb-3 sm:mb-4">
-      Bollyflix
+      Bollyflix300
     </h1>
 
     {/* Description */}
@@ -97,22 +97,22 @@ export default async function Page() {
       <MovieCarousel title="English Movies" movies={englishMovies} />
       <section className="px-4 md:px-6 lg:px-12 max-w-7xl mx-auto space-y-4 text-gray-300 leading-relaxed">
         <h2 className="text-2xl md:text-3xl font-semibold text-(--text-color)">
-          Latest Movies and Web Series on Bolly4umovie
+          Latest Movies and Web Series on Bollyflix300
         </h2>
 
         <p>
-          Discover the most recent updates on Bolly4umovie, this is your only
-          destination for the latest movies and web series. With Bolly4umovie
+          Discover the most recent updates on Bollyflix300, this is your only
+          destination for the latest movies and web series. With Bollyflix300
           2024, you can stay up-to-date with all the trending releases from
           Bollywood, Tollywood, Kollywood, and beyond. If you're looking for the
           latest Hindi blockbusters or regional hits in Telugu, Tamil, and Punjabi.
         </p>
 
         <p>
-          Bolly4umovie offers an extensive collection of movies and web series
+          Bollyflix300 offers an extensive collection of movies and web series
           spanning a variety of genres. From action to crime thrillers, you can
           explore the latest action-packed films, dive into intense crime dramas, or
-          binge-watch the hottest web series. No matter your taste, Bolly4umovie
+          binge-watch the hottest web series. No matter your taste, Bollyflix300
           ensures you never miss out on your favourite genres.
         </p>
 
@@ -121,9 +121,9 @@ export default async function Page() {
         </h3>
 
         <p>
-          At Bolly4umovie, we follow all major film industries, including the latest
+          At Bollyflix300, we follow all major film industries, including the latest
           Hindi and Bollywood films, you can also check the newest Tamil and Telugu
-          releases, or discover exciting Punjabi cinema. Bolly4umovie 2024 is your
+          releases, or discover exciting Punjabi cinema. Bollyflix300 2024 is your
           ultimate destination for a diverse range of regional content, ensuring you
           have access to the best from across the Indian film landscape.
         </p>
@@ -133,17 +133,17 @@ export default async function Page() {
         </h3>
 
         <p>
-          In addition to movies, Bolly4umovie keeps you updated on the hottest web
+          In addition to movies, Bollyflix300 keeps you updated on the hottest web
           series. Whether you're into dramatic sagas or light-hearted comedies, our
           platform provides timely updates on all the latest web series releases.
-          Explore new shows and stay informed with Bolly4umovie, where the best of
+          Explore new shows and stay informed with Bollyflix300, where the best of
           digital entertainment is just a click away.
         </p>
 
         <p>
-          By focusing on these key aspects, Bolly4umovie ensures that you have the
+          By focusing on these key aspects, Bollyflix300 ensures that you have the
           latest updates on movies and web series at your fingertips, in the genres
-          and languages you love. Keep visiting Bolly4umovie for the all
+          and languages you love. Keep visiting Bollyflix300 for the all
           entertainment updates and reviews at the earliest.
         </p>
       </section>

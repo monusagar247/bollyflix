@@ -11,7 +11,7 @@ export async function generateMetadata({
   
   return {
     title: `${displayCategory} Movies`,
-    description: `Browse ${displayCategory} movies and reviews on Bollyflix`,
+    description: `Browse ${displayCategory} movies and reviews on Bollyflix300`,
   };
 }
 

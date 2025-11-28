@@ -99,7 +99,7 @@ export default function Navbar() {
           <div className="h-16 flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3">
               <Image src="/logo.png" alt="logo" width={35} height={35} />
-              <span className="text-lg font-semibold text-white">Bollyflix</span>
+              <span className="text-lg font-semibold text-white">Bollyflix300</span>
             </Link>
 
             <ul className="hidden lg:flex items-center gap-6">

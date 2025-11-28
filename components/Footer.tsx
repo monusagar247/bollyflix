@@ -18,7 +18,7 @@ export default function Footer() {
     <footer className="text-(--text-color) bg-(--other-element-color) border-t border-slate-800 mt-4">
       <div className="max-w-7xl mx-auto px-6 py-14">
         <p className="text-(--text-color) mb-6 leading-relaxed">
-          <strong>Disclaimer:</strong> Bollyflexlist publishes film and
+          <strong>Disclaimer:</strong> Bollyflix300 publishes film and
           web-series reviews, news, and industry updates only. All images,
           posters, and media used on this website are for informational purposes
           and remain the property of their respective owners under fair-use
@@ -86,7 +86,7 @@ export default function Footer() {
         <div className="mt-8 border-t border-white/6 pt-6">
           <div className="max-w-3xl mx-auto text-center text-xs md:text-sm text-(--text-color)/80">
             <p>
-              © {year} Bollyflexlist. All rights reserved. &nbsp;
+              © {year} Bollyflix300. All rights reserved. &nbsp;
               <span className="mx-1">•</span>
               Data & images are provided by{" "}
               <a
