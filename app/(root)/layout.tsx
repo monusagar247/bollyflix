@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "https://bollyflix300.in/og-image.png",
+        url: "https://bollyflexlist.vercel.app/og-image.png",
         width: 1200,
         height: 630,
         alt: "Bollyflix300",
