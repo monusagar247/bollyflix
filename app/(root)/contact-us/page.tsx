@@ -14,7 +14,7 @@ type ApiResp = {
 };
 
 const CONTACT_URL =
-  "https://bollyflix300.in/admin/api/api?x=get_extra&extra=contact";
+  "https://admin.bolly4umovie.in/admin/api/api?x=get_extra&extra=contact";
 
 const Page = async () => {
   const res = await fetch(CONTACT_URL);

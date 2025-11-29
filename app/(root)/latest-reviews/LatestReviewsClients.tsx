@@ -51,7 +51,7 @@ export default function Page() {
     setMovieLoading(true);
     try {
       const res = await fetch(
-        `https://bollyflix300.in/admin/api/api?x=get_movie_by_type&type=movie&page=${page}`
+        `https://admin.bolly4umovie.in/admin/api/api?x=get_movie_by_type&type=movie&page=${page}`
       );
       const { data, pagination } = await res.json();
       setMovies(data.map(transformData));
@@ -69,7 +69,7 @@ export default function Page() {
     setSeriesLoading(true);
     try {
       const res = await fetch(
-        `https://bollyflix300.in/admin/api/api?x=get_movie_by_type&type=tv&page=${page}`
+        `https://admin.bolly4umovie.in/admin/api/api?x=get_movie_by_type&type=tv&page=${page}`
       );
       const { data, pagination } = await res.json();
       setSeries(data.map(transformData));

@@ -51,7 +51,7 @@ export default function Page() {
     setHindiLoading(true);
     try {
       const res = await fetch(
-        `https://bollyflix300.in/admin/api/api?x=get_movies_by_language_createdat&language=hindi&page=${page}`
+        `https://admin.bolly4umovie.in/admin/api/api?x=get_movies_by_language_createdat&language=hindi&page=${page}`
       );
       const { data, pagination } = await res.json();
       setHindiMovies(data.map(transformData));
@@ -69,7 +69,7 @@ export default function Page() {
     setEnglishLoading(true);
     try {
       const res = await fetch(
-        `https://bollyflix300.in/admin/api/api?x=get_movies_by_language_createdat&language=english&page=${page}`
+        `https://admin.bolly4umovie.in/admin/api/api?x=get_movies_by_language_createdat&language=english&page=${page}`
       );
       const { data, pagination } = await res.json();
       setEnglishMovies(data.map(transformData));

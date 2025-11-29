@@ -20,7 +20,7 @@ export async function generateMetadata({
 export async function generateStaticParams() {
   try {
     const res = await fetch(
-      'https://bollyflix300.in/admin/api/api?x=get_all_movies'
+      'https://admin.bolly4umovie.in/admin/api/api?x=get_all_movies'
     );
     
     const { data } = await res.json();

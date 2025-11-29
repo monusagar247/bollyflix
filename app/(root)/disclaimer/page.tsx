@@ -14,7 +14,7 @@ type ApiResp = {
 };
 
 const disclaimer_URL =
-  "https://bollyflix300.in/admin/api/api?x=get_extra&extra=disclaimer";
+  "https://admin.bolly4umovie.in/admin/api/api?x=get_extra&extra=disclaimer";
 
 const Page = async () => {
   const res = await fetch(disclaimer_URL);

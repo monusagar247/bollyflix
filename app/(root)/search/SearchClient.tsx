@@ -51,7 +51,7 @@ export default function Page() {
 
     try {
       const res = await fetch(
-        `https://bollyflix300.in/admin/api/api?x=get_movies_by_query&query=${encodeURIComponent(
+        `https://admin.bolly4umovie.in/admin/api/api?x=get_movies_by_query&query=${encodeURIComponent(
           query
         )}&page=${page}`
       );

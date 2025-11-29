@@ -58,7 +58,7 @@ const Page = () => {
     const load = async () => {
       try {
         const res = await fetch(
-          `https://bollyflix300.in/admin/api/api?x=get_movie_by_slug&movie_slug=${slug}`
+          `https://admin.bolly4umovie.in/admin/api/api?x=get_movie_by_slug&movie_slug=${slug}`
         );
         const { data } = await res.json();
         setMovieData(data);
@@ -86,7 +86,7 @@ const Page = () => {
     const loadLatestMovies = async () => {
       try {
         const res = await fetch(
-          "https://bollyflix300.in/admin/api/api?x=get_movie_by_type&type=movie&page=1"
+          "https://admin.bolly4umovie.in/admin/api/api?x=get_movie_by_type&type=movie&page=1"
         );
         const { data } = await res.json();
 

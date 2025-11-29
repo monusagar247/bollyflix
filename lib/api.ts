@@ -27,7 +27,7 @@ const transformToMovie = (item: TVShow): Movie => ({
 
 export async function fetchTVShows(): Promise<Movie[]> {
   const res = await fetch(
-    "https://bollyflix300.in/admin/api/api?x=get_all_tv"
+    "https://admin.bolly4umovie.in/admin/api/api?x=get_all_tv"
   );
   
   if (!res.ok) throw new Error("Failed to fetch TV shows");
@@ -38,7 +38,7 @@ export async function fetchTVShows(): Promise<Movie[]> {
 
 export async function fetchHindiMovies(): Promise<Movie[]> {
   const res = await fetch(
-    "https://bollyflix300.in/admin/api/api?x=get_movies_by_language&language=hindi"
+    "https://admin.bolly4umovie.in/admin/api/api?x=get_movies_by_language&language=hindi"
   );
   
   if (!res.ok) throw new Error("Failed to fetch Hindi movies");
@@ -49,7 +49,7 @@ export async function fetchHindiMovies(): Promise<Movie[]> {
 
 export async function fetchEnglishMovies(): Promise<Movie[]> {
   const res = await fetch(
-    "https://bollyflix300.in/admin/api/api?x=get_movies_by_language&language=english"
+    "https://admin.bolly4umovie.in/admin/api/api?x=get_movies_by_language&language=english"
   );
   
   if (!res.ok) throw new Error("Failed to fetch English movies");
@@ -63,7 +63,7 @@ export async function fetchMoviesByCategory(
   type: "movie" | "tv" = "movie"
 ): Promise<Movie[]> {
   const res = await fetch(
-    `https://bollyflix300.in/admin/api/api?x=get_movies_by_subcategory&subcategory=${encodeURIComponent(subcategory)}&type=${type}`
+    `https://admin.bolly4umovie.in/admin/api/api?x=get_movies_by_subcategory&subcategory=${encodeURIComponent(subcategory)}&type=${type}`
   );
   
   if (!res.ok) throw new Error(`Failed to fetch ${subcategory} movies`);
@@ -77,7 +77,7 @@ export async function fetchMoviesByType(
   page: number = 1
 ): Promise<{ movies: Movie[]; pagination: PaginationInfo }> {
   const res = await fetch(
-    `https://bollyflix300.in/admin/api/api?x=get_movie_by_type&type=${type}&page=${page}`
+    `https://admin.bolly4umovie.in/admin/api/api?x=get_movie_by_type&type=${type}&page=${page}`
   );
   
   if (!res.ok) throw new Error(`Failed to fetch ${type}s`);

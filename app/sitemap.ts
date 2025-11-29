@@ -70,14 +70,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     // Fetch movies
     const moviesRes = await fetch(
-      'https://bollyflix300.in/admin/api/api?x=get_movie_by_type&type=movie&page=1',
+      'https://admin.bolly4umovie.in/admin/api/api?x=get_movie_by_type&type=movie&page=1',
       { next: { revalidate: 3600 } }
     );
     const { data: movies } = await moviesRes.json();
 
     // Fetch TV shows
     const tvShowsRes = await fetch(
-      'https://bollyflix300.in/admin/api/api?x=get_movie_by_type&type=tv&page=1',
+      'https://admin.bolly4umovie.in/admin/api/api?x=get_movie_by_type&type=tv&page=1',
       { next: { revalidate: 3600 } }
     );
     const { data: tvShows } = await tvShowsRes.json();

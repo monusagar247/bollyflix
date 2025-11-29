@@ -47,7 +47,7 @@ export default function CategoryClient() {
     setLoading(true);
     try {
       const res = await fetch(
-        `https://bollyflix300.in/admin/api/api?x=get_movies_by_subcategory&subcategory=${category}&page=${page}`
+        `https://admin.bolly4umovie.in/admin/api/api?x=get_movies_by_subcategory&subcategory=${category}&page=${page}`
       );
       const { data, pagination: paginationData } = await res.json();
       setMovies(data.map(transformData));
