@@ -35,13 +35,13 @@ export const metadata: Metadata = {
     title: "Bollyflix300 - Latest Films, Tv Series & Release Updates 2025",
     description:
       "Read the latest movie updates, ratings, and trailers from Bollywood, Hollywood, and South Indian cinema on bollyflix300.",
-    url: "https://bollyflix300.in",
+    url: "https://www.bollyflix300.in",
     siteName: "bollyflix300",
     type: "website",
     locale: "en_US",
     images: [
       {
-        url: "https://bollyflix300.in/og-image.png",
+        url: "https://www.bollyflix300.in/og-image.png",
         width: 1200,
         height: 630,
         alt: "Bollyflix300",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
       "Get honest reviews, updates & critic scores, and the latest updates from Bollywood, Hollywood, and South cinema.",
     images: [""],
   },
-  metadataBase: new URL("https://bollyflix300.in"),
+  metadataBase: new URL("https://www.bollyflix300.in"),
 };
 
 export default function RootLayout({

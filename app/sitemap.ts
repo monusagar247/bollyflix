@@ -7,7 +7,7 @@ const CATEGORIES = [
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://bollyflix300.in';
+  const baseUrl = 'https://www.bollyflix300.in';
   
   const staticRoutes: MetadataRoute.Sitemap = [
     {

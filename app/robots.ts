@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/admin/',
     },
-    sitemap: 'https://bollyflix300.in/sitemap.xml',
+    sitemap: 'https://www.bollyflix300.in/sitemap.xml',
   }
 }
