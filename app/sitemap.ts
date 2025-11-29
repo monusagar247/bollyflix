@@ -7,7 +7,7 @@ const CATEGORIES = [
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://bollyflexlist.vercel.app';
+  const baseUrl = 'https://bollyflix300.in';
   
   const staticRoutes: MetadataRoute.Sitemap = [
     {

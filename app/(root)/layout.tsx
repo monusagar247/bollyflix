@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "https://bollyflexlist.vercel.app/og-image.png",
+        url: "https://bollyflix300.in/og-image.png",
         width: 1200,
         height: 630,
         alt: "Bollyflix300",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
       "Get honest reviews, updates & critic scores, and the latest updates from Bollywood, Hollywood, and South cinema.",
     images: [""],
   },
-  metadataBase: new URL("https://bollyflexlist.vercel.app"),
+  metadataBase: new URL("https://bollyflix300.in"),
 };
 
 export default function RootLayout({
