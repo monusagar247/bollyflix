@@ -10,7 +10,7 @@ import {
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "/",
+    canonical: "https://www.bollyflix300.in/",
   },
 };
 

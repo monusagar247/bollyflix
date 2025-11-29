@@ -3,6 +3,8 @@ import { Lato } from "next/font/google";
 import "../globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { GoogleAnalytics } from '@next/third-parties/google'
+
 
 const lato = Lato({
   variable: "--font-lato",
@@ -75,6 +77,7 @@ export default function RootLayout({
         </main>
         <Footer/>
       </body>
+      <GoogleAnalytics gaId="G-78ETZ580M6" />
     </html>
   );
 }
