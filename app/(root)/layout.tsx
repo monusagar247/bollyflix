@@ -67,6 +67,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5036750120250042"
+      crossOrigin="anonymous"></script>
       <body
         className={`${lato.variable} antialiased`}
         suppressHydrationWarning={true}
