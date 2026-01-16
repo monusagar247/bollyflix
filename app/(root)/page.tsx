@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { MovieCarousel } from "@/components/MovieCarousel";
 import Link from "next/link";
 import {
+  fetchLatestMovies,
   fetchTVShows,
   fetchHindiMovies,
   fetchEnglishMovies,
@@ -15,8 +16,9 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const [tvShows, hindiMovies, englishMovies, actionMovies, comedyMovies] =
+  const [ latestMovies, tvShows, hindiMovies, englishMovies, actionMovies, comedyMovies] =
     await Promise.all([
+      fetchLatestMovies(),
       fetchTVShows(),
       fetchHindiMovies(),
       fetchEnglishMovies(),
@@ -99,7 +101,7 @@ export default async function Page() {
   </div>
 </header>
 
-
+      <MovieCarousel title="Latest Reviewed" movies={latestMovies} />
       <MovieCarousel title="Hindi Movies" movies={hindiMovies} />
       <MovieCarousel title="English Movies" movies={englishMovies} />
       <section className="px-4 md:px-6 lg:px-12 max-w-7xl mx-auto space-y-4 text-gray-300 leading-relaxed">
