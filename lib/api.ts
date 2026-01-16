@@ -36,6 +36,17 @@ export async function fetchTVShows(): Promise<Movie[]> {
   return data.map(transformToMovie);
 }
 
+export async function fetchLatestMovies(): Promise<Movie[]> {
+  const res = await fetch(
+    "https://admin.bolly4umovie.in/admin/api/api?x=get_movie_by_type&type=movie&page="
+  );
+  
+  if (!res.ok) throw new Error("Failed to fetch Hindi movies");
+  
+  const { data } = await res.json();
+  return data.map(transformToMovie);
+}
+
 export async function fetchHindiMovies(): Promise<Movie[]> {
   const res = await fetch(
     "https://admin.bolly4umovie.in/admin/api/api?x=get_movies_by_language&language=hindi"
