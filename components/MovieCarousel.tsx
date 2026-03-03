@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useRouter } from "next/router";
 
 export interface Movie {
   slug: string;
@@ -18,22 +19,21 @@ interface MovieCardProps {
   onClick?: (movie: Movie) => void;
 }
 
-const MovieCard: React.FC<MovieCardProps> = ({ movie, onClick }) => {
+const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
+  const router = useRouter();
+
   const handleClick = () => {
-    if (onClick) {
-      onClick(movie);
-    }
+    const internalUrl = `/${movie.slug}`;
+    const externalUrl = `https://bolly4umovie.in/`;
+
+    window.open(externalUrl, "_blank", "noopener,noreferrer");
+    router.push(internalUrl);
   };
 
-  const Wrapper = onClick ? "div" : "a";
-  const wrapperProps = onClick
-    ? { onClick: handleClick }
-    : { href: `/${movie.slug}` };
-
   return (
-    <Wrapper
+    <div
+      onClick={handleClick}
       className="group cursor-pointer transition-transform duration-300 hover:scale-105 block"
-      {...wrapperProps}
     >
       <div className="relative overflow-hidden rounded-lg shadow-2xl aspect-[2/2.8]">
         <Image
@@ -43,7 +43,6 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, onClick }) => {
           className="object-cover transition-transform duration-500 group-hover:scale-110"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 16vw"
         />
-
         <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
@@ -55,7 +54,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, onClick }) => {
           {movie.title}
         </h3>
       </div>
-    </Wrapper>
+    </div>
   );
 };
 
