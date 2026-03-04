@@ -16,6 +16,9 @@ interface PaginationInfo {
   current_page: number;
 }
 
+const API_BASE =
+  "https://admin.bolly4umovie.in/admin/api/api";
+
 const transformToMovie = (item: TVShow): Movie => ({
   slug: item.movie_slug,
   title: item.movie_name,
@@ -25,77 +28,97 @@ const transformToMovie = (item: TVShow): Movie => ({
   posterPath: item.movie_posterurl,
 });
 
+/*
+Safe fetch helper
+Prevents crashes + adds caching
+*/
+async function safeFetch(url: string) {
+  try {
+    const res = await fetch(url, {
+      next: { revalidate: 3600 }, // cache 1 hour
+    });
+
+    if (!res.ok) return null;
+
+    return res.json();
+  } catch (error) {
+    console.error("API fetch failed:", url, error);
+    return null;
+  }
+}
+
 export async function fetchTVShows(): Promise<Movie[]> {
-  const res = await fetch(
-    "https://admin.bolly4umovie.in/admin/api/api?x=get_all_tv"
-  );
-  
-  if (!res.ok) throw new Error("Failed to fetch TV shows");
-  
-  const { data } = await res.json();
-  return data.map(transformToMovie);
+  const json = await safeFetch(`${API_BASE}?x=get_all_tv`);
+
+  if (!json?.data) return [];
+
+  return json.data.map(transformToMovie);
 }
 
 export async function fetchLatestMovies(): Promise<Movie[]> {
-  const res = await fetch(
-    "https://admin.bolly4umovie.in/admin/api/api?x=get_movie_by_type&type=movie&page="
+  const json = await safeFetch(
+    `${API_BASE}?x=get_movie_by_type&type=movie&page=1`
   );
-  
-  if (!res.ok) throw new Error("Failed to fetch Hindi movies");
-  
-  const { data } = await res.json();
-  return data.map(transformToMovie);
+
+  if (!json?.data) return [];
+
+  return json.data.map(transformToMovie);
 }
 
 export async function fetchHindiMovies(): Promise<Movie[]> {
-  const res = await fetch(
-    "https://admin.bolly4umovie.in/admin/api/api?x=get_movies_by_language&language=hindi"
+  const json = await safeFetch(
+    `${API_BASE}?x=get_movies_by_language&language=hindi`
   );
-  
-  if (!res.ok) throw new Error("Failed to fetch Hindi movies");
-  
-  const { data } = await res.json();
-  return data.map(transformToMovie);
+
+  if (!json?.data) return [];
+
+  return json.data.map(transformToMovie);
 }
 
 export async function fetchEnglishMovies(): Promise<Movie[]> {
-  const res = await fetch(
-    "https://admin.bolly4umovie.in/admin/api/api?x=get_movies_by_language&language=english"
+  const json = await safeFetch(
+    `${API_BASE}?x=get_movies_by_language&language=english`
   );
-  
-  if (!res.ok) throw new Error("Failed to fetch English movies");
-  
-  const { data } = await res.json();
-  return data.map(transformToMovie);
+
+  if (!json?.data) return [];
+
+  return json.data.map(transformToMovie);
 }
 
 export async function fetchMoviesByCategory(
   subcategory: string,
   type: "movie" | "tv" = "movie"
 ): Promise<Movie[]> {
-  const res = await fetch(
-    `https://admin.bolly4umovie.in/admin/api/api?x=get_movies_by_subcategory&subcategory=${encodeURIComponent(subcategory)}&type=${type}`
+
+  const json = await safeFetch(
+    `${API_BASE}?x=get_movies_by_subcategory&subcategory=${encodeURIComponent(
+      subcategory
+    )}&type=${type}`
   );
-  
-  if (!res.ok) throw new Error(`Failed to fetch ${subcategory} movies`);
-  
-  const { data } = await res.json();
-  return data.map(transformToMovie);
+
+  if (!json?.data) return [];
+
+  return json.data.map(transformToMovie);
 }
 
 export async function fetchMoviesByType(
   type: "movie" | "tv",
   page: number = 1
-): Promise<{ movies: Movie[]; pagination: PaginationInfo }> {
-  const res = await fetch(
-    `https://admin.bolly4umovie.in/admin/api/api?x=get_movie_by_type&type=${type}&page=${page}`
+): Promise<{ movies: Movie[]; pagination: PaginationInfo | null }> {
+
+  const json = await safeFetch(
+    `${API_BASE}?x=get_movie_by_type&type=${type}&page=${page}`
   );
-  
-  if (!res.ok) throw new Error(`Failed to fetch ${type}s`);
-  
-  const { data, pagination } = await res.json();
+
+  if (!json?.data) {
+    return {
+      movies: [],
+      pagination: null,
+    };
+  }
+
   return {
-    movies: data.map(transformToMovie),
-    pagination,
+    movies: json.data.map(transformToMovie),
+    pagination: json.pagination,
   };
 }
