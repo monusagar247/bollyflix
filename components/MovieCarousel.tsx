@@ -22,13 +22,16 @@ interface MovieCardProps {
 const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
   const router = useRouter();
 
-  const handleClick = () => {
-    const internalUrl = `/${movie.slug}`;
-    const externalUrl = `https://bolly4umovie.in/`;
+   const handleClick = () => {
+  const internalUrl = `/${movie.slug}`;
+  const externalUrl = `https://bolly4umovie.in/`;
 
-    window.open(externalUrl, "_blank", "noopener,noreferrer");
+  window.open(externalUrl, "_blank", "noopener,noreferrer");
+
+  setTimeout(() => {
     router.push(internalUrl);
-  };
+  }, 8000); 
+};
 
   return (
     <div
