@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+export const dynamic = "force-dynamic"; 
 import { MovieCarousel } from "@/components/MovieCarousel";
 import Link from "next/link";
 import {
