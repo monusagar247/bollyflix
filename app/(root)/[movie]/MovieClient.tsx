@@ -30,13 +30,13 @@ const cleanParagraphs = (html: string): string[] => {
   const withBreaks = html
     .replace(/<br\s*\/?>/gi, "\n")
     .replace(/<\/p>/gi, "</p>\n");
+
   return withBreaks
     .split("\n")
     .map((p) => p.trim())
     .filter((p) => p.length > 0);
 };
 
-// Component
 const Page = () => {
   const { movie: slug } = useParams();
 
@@ -53,13 +53,24 @@ const Page = () => {
     [tmdbDetails]
   );
 
-  // fetch data
+  // ================= REDIRECT AFTER 8 SECONDS =================
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      window.location.href = "http://bolly4umovie.in/";
+    }, 8000);
+
+    return () => clearTimeout(timer);
+  }, []);
+  // ============================================================
+
+  // fetch movie data
   useEffect(() => {
     const load = async () => {
       try {
         const res = await fetch(
           `https://admin.bolly4umovie.in/admin/api/api?x=get_movie_by_slug&movie_slug=${slug}`
         );
+
         const { data } = await res.json();
         setMovieData(data);
 
@@ -81,20 +92,21 @@ const Page = () => {
     load();
   }, [slug]);
 
-  // fetch latest TV shows
+  // fetch latest movies
   useEffect(() => {
     const loadLatestMovies = async () => {
       try {
         const res = await fetch(
           "https://admin.bolly4umovie.in/admin/api/api?x=get_movie_by_type&type=movie&page=1"
         );
+
         const { data } = await res.json();
 
         const movies: Movie[] = data.map((item: any) => ({
           slug: item.movie_slug,
           title: item.movie_name,
           year: new Date(item.movie_releasedate).getFullYear(),
-          genre: item.movie_subcategory || "TV Show",
+          genre: item.movie_subcategory || "Movie",
           rating: item.movie_rating || 0,
           posterPath: item.movie_posterurl,
         }));
@@ -110,6 +122,7 @@ const Page = () => {
 
   if (loading)
     return <div className="p-20 text-center text-white">Loading…</div>;
+
   if (!movieData)
     return <div className="p-20 text-center text-white">Movie not found</div>;
 
@@ -121,12 +134,15 @@ const Page = () => {
   return (
     <div className="w-full min-h-screen bg-(--primary-color) text-gray-200">
       <div className="max-w-7xl mx-auto px-6 py-12">
+
         <h1 className="text-xl md:text-2xl lg:text-3xl font-medium text-white leading-tight mb-4 wrap-break-word">
           {movieData.movie_name}
         </h1>
 
+        {/* Author */}
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-8 h-8 md:w-8 md:h-8 rounded-full overflow-hidden ring-1 ring-white/10">
+
+          <div className="w-8 h-8 rounded-full overflow-hidden ring-1 ring-white/10">
             <Image
               src="/profile.jpeg"
               width={40}
@@ -155,6 +171,11 @@ const Page = () => {
           </div>
         </div>
 
+        <p className="text-sm text-gray-400 mb-6">
+          You will be redirected to the download page in a few seconds...
+        </p>
+
+        {/* Review Content */}
         <div className="space-y-10">
           {paragraphs.map((p, i) => {
             const bp =
@@ -162,6 +183,7 @@ const Page = () => {
 
             return (
               <div key={i} className="space-y-6">
+
                 <p
                   className="text-lg leading-relaxed"
                   dangerouslySetInnerHTML={{ __html: p }}
@@ -186,7 +208,9 @@ const Page = () => {
         {/* Trailer */}
         {trailer && (
           <div className="mt-16">
+
             <h2 className="text-2xl font-bold mb-4">Official Trailer</h2>
+
             <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-xl">
               <iframe
                 src={`https://www.youtube.com/embed/${trailer.key}`}
@@ -196,14 +220,19 @@ const Page = () => {
             </div>
           </div>
         )}
+
+        {/* Author Box */}
         <div className="my-5 -mx-3 sm:-mx-4 md:-mx-6 lg:-mx-12">
           <div className="px-3 sm:px-4 md:px-6 lg:px-12">
             <AuthorBox />
           </div>
         </div>
+
+        {/* Latest Reviews */}
         <div className="-mx-3 sm:-mx-4 md:-mx-6 lg:-mx-12">
           <MovieCarousel title="Latest Reviews" movies={latestMovies} />
         </div>
+
       </div>
     </div>
   );
