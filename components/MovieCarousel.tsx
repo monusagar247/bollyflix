@@ -22,14 +22,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
   const router = useRouter();
 
   const handleClick = () => {
-    const internalUrl = `/${movie.slug}`;
-    const externalUrl = `https://bolly4umovie.in/`;
-
-    window.open(externalUrl, "_blank", "noopener,noreferrer");
-
-    setTimeout(() => {
-      router.push(internalUrl);
-    }, 8000);
+    router.push(`/${movie.slug}`);
   };
 
   return (
@@ -120,7 +113,7 @@ export const MovieCarouselScroll: React.FC<MovieCarouselScrollProps> = ({
   };
 
   return (
-    <section className="w-full py-8 relative group/carousel">
+    <section className="w-full py-8 relative">
       <div className="mx-auto max-w-7xl px-3 sm:px-4 md:px-6 lg:px-12">
         {title && (
           <h2 className="text-2xl sm:text-3xl font-bold text-[#EBFAFF] mb-6">
@@ -129,6 +122,8 @@ export const MovieCarouselScroll: React.FC<MovieCarouselScrollProps> = ({
         )}
 
         <div className="relative">
+
+          {/* Left Scroll Button */}
           <button
             onClick={() => scroll("left")}
             className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[#0b1225]/80 hover:bg-[#0b1225] text-white p-2 rounded-full hidden sm:block"
@@ -136,6 +131,7 @@ export const MovieCarouselScroll: React.FC<MovieCarouselScrollProps> = ({
             <ChevronLeft size={24} />
           </button>
 
+          {/* Right Scroll Button */}
           <button
             onClick={() => scroll("right")}
             className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[#0b1225]/80 hover:bg-[#0b1225] text-white p-2 rounded-full hidden sm:block"
@@ -143,6 +139,7 @@ export const MovieCarouselScroll: React.FC<MovieCarouselScrollProps> = ({
             <ChevronRight size={24} />
           </button>
 
+          {/* Scrollable Movies */}
           <div
             ref={scrollContainerRef}
             className="flex gap-3 sm:gap-4 md:gap-6 overflow-x-auto scrollbar-hide scroll-smooth"
@@ -156,6 +153,7 @@ export const MovieCarouselScroll: React.FC<MovieCarouselScrollProps> = ({
               </div>
             ))}
           </div>
+
         </div>
       </div>
     </section>
